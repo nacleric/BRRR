@@ -1,0 +1,33 @@
+version: '3.4'
+
+# Versions picked up from .env file in repo root
+services:
+  my-webserver:
+    image: hashicorp/http-echo
+    command: [
+      "-text",
+      "hello from docker-compose"
+    ]
+    ports:
+      - "80:5678"
+
+  pinger:
+    image: ellerbrock/alpine-bash-curl-ssl
+    entrypoint: "bash"
+    command: [
+      "-c",
+      "while true; do date && curl -s my-webserver:5678; sleep 2; done;"
+    ]
+
+  
+  # time-logger:
+  #   image: ubuntu:latest
+  #   entrypoint: "bash"
+  #   command: [
+  #     "-c",
+  #     "while true; do date | tee -a /app/output.log; sleep 2; done;",
+  #     ]
+  #   volumes:
+  #     - ./host:/app
+
+
