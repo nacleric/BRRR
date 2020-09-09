@@ -1,0 +1,595 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Eric&#x27;s Notes go BRRR</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> mdBook</a></li><li class="chapter-item expanded "><a href="azure/index.html"><strong aria-hidden="true">2.</strong> azure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="azure/010-az-setup.html"><strong aria-hidden="true">2.1.</strong> az-setup</a></li><li class="chapter-item expanded "><a href="azure/020-az-kubectl-setup.html"><strong aria-hidden="true">2.2.</strong> az-kubectl-setup</a></li><li class="chapter-item expanded "><a href="azure/030-kubectl-ns.html"><strong aria-hidden="true">2.3.</strong> kubectl-ns</a></li><li class="chapter-item expanded "><a href="azure/040-azurek8.html"><strong aria-hidden="true">2.4.</strong> azure-micro-k8</a></li></ol></li><li class="chapter-item expanded "><a href="docker/index.html"><strong aria-hidden="true">3.</strong> docker</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="docker/010-docker-compute.html"><strong aria-hidden="true">3.1.</strong> docker-compute</a></li><li class="chapter-item expanded "><a href="docker/020-docker-storage.html"><strong aria-hidden="true">3.2.</strong> docker-storage</a></li><li class="chapter-item expanded "><a href="docker/028-docker-long-running.html"><strong aria-hidden="true">3.3.</strong> docker-long-running</a></li><li class="chapter-item expanded "><a href="docker/030-docker-networking.html"><strong aria-hidden="true">3.4.</strong> docker-networking</a></li><li class="chapter-item expanded "><a href="docker/035-docker-background.html"><strong aria-hidden="true">3.5.</strong> docker-background</a></li></ol></li><li class="chapter-item expanded "><a href="kubernetes/00-kubectl-overview.html"><strong aria-hidden="true">4.</strong> kubernetes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kubernetes/01-kubectl-apply.html"><strong aria-hidden="true">4.1.</strong> kubectl-apply</a></li><li class="chapter-item expanded "><a href="kubernetes/application.html"><strong aria-hidden="true">4.2.</strong> yaml example</a></li></ol></li><li class="chapter-item expanded "><a href="rust/index.html"><strong aria-hidden="true">5.</strong> Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust/common_datatypes.html"><strong aria-hidden="true">5.1.</strong> common-datatypes</a></li><li class="chapter-item expanded "><a href="rust/errorhandling.html"><strong aria-hidden="true">5.2.</strong> errorhandling</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Eric&#x27;s Notes go BRRR</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#just-a-place-for-my-notes" id="just-a-place-for-my-notes">Just a place for my notes</a></h1>
+<p>Base is stolen from <a href="https://github.com/RangerStation/mini-bootcamp-appendix/">Ranger-Station</a></p>
+<h2><a class="header" href="#azure-account-setup" id="azure-account-setup">Azure Account Setup</a></h2>
+<p>Open a command prompt/termal.</p>
+<pre><code>$ az login
+</code></pre>
+<p>Login with your Microsoft account</p>
+<pre><code>$ az account list
+</code></pre>
+<p>You should see in your list the following entry:</p>
+<pre><code>  {
+    &quot;cloudName&quot;: &quot;AzureCloud&quot;,
+    &quot;id&quot;: &quot;{subscription_id}&quot;,
+    &quot;isDefault&quot;: false,
+    &quot;name&quot;: &quot;Visual Studio Enterprise&quot;,
+    &quot;state&quot;: &quot;Enabled&quot;,
+    &quot;tenantId&quot;: &quot;{tenant_id}&quot;,
+    &quot;user&quot;: {
+      &quot;name&quot;: &quot;{your_microsoft_account_email}&quot;,
+      &quot;type&quot;: &quot;user&quot;
+    }
+  }
+</code></pre>
+<p>This corresponds to the Azure subscription that we will use for the project. If you go to portal.azure.com you'll see the web interface for the subscription. Here you can use the GUI to add and interact with Azure resources.</p>
+<p>Many actions related to working with Azure resources can be done both via Azure CLI and through the portal.</p>
+<h2><a class="header" href="#azure-kubectl-setup" id="azure-kubectl-setup">Azure Kubectl Setup</a></h2>
+<p>We have a Kubernetes (K8s) cluster in <a href="azure/portal.azure.com">Azure</a>.</p>
+<p><code>kubectl</code> is the CLI tool you use to communicate with a K8s cluster.</p>
+<p>Use <a href="https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials"><code>az aks get-credentials</code></a> to fetch credentials for the cluster.</p>
+<p>This will configure <code>kubectl</code> config so all future commands target the specified cluster.</p>
+<pre><code>az aks get-credentials -n {cluster_name} -g {resource_group}
+</code></pre>
+<h2><a class="header" href="#kubernetes-namespaces" id="kubernetes-namespaces">Kubernetes Namespaces</a></h2>
+<p>Kubernetes has many different resource types, like <code>Deployment</code>, <code>PersistentVolumeClaim</code>,<code>Service</code>, and <code>Ingress</code>, to name a few. </p>
+<p>Resources must live within a Namespace. So, a <code>namespace</code> is a an isolated collection of resources.</p>
+<p>See the <code>namespaces</code> on the cluster with </p>
+<pre><code>kubectl get namespaces
+
+# kubectl get ns
+</code></pre>
+<p>Pick a name for your new namespace, and create it with </p>
+<pre><code>$ kubectl create ns plant
+namespace/plant created
+</code></pre>
+<p>See the newly created namespace </p>
+<pre><code>kubectl get ns
+
+NAME              STATUS   AGE
+default           Active   73m
+plant             Active   3s
+</code></pre>
+<h1><a class="header" href="#clarifications-on-az-aks-and-kubectl" id="clarifications-on-az-aks-and-kubectl">Clarifications on az aks and kubectl?</a></h1>
+<p>az commandline will connect to your azure kubernetes service. To access the clusters and manage them, you use kubectl.</p>
+<h1><a class="header" href="#azure-kubernetes-quickstart" id="azure-kubernetes-quickstart">Azure Kubernetes Quickstart</a></h1>
+<p><a href="https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough#create-aks-cluster">Documentation Link</a><br />
+In this quickstart, you deploy an Azure Kubernetes Service (AKS) cluster using the Azure CLI. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. A multi-container application that includes a web front end and a Redis instance is run in the cluster. You then see how to monitor the health of the cluster and pods that run your application.</p>
+<h1><a class="header" href="#what-is-a-resource-group" id="what-is-a-resource-group">What is a Resource group?</a></h1>
+<p><a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group">Documentation Link</a><br />
+A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.</p>
+<p>The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.</p>
+<h1><a class="header" href="#docker" id="docker">Docker</a></h1>
+<h2><a class="header" href="#compute" id="compute">Compute</a></h2>
+<pre><code>$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+</code></pre>
+<p><a href="https://hub.docker.com/">Docker hub</a> hosts a world of openly available docker images. </p>
+<p>In this tutorial, we'll pull the latest <a href="https://hub.docker.com/_/ubuntu?tab=tags">ubuntu</a> image with:</p>
+<pre><code>$ docker pull ubuntu:latest
+latest: Pulling from library/ubuntu
+692c352adcf2: Pull complete                                                                                             97058a342707: Pull complete                                                                                             2821b8e766f4: Pull complete                                                                                             4e643cc37772: Pull complete                                                                                             Digest: sha256:55cd38b70425947db71112eb5dddfa3aa3e3ce307754a3df2269069d2278ce47
+Status: Downloaded newer image for ubuntu:latest
+docker.io/library/ubuntu:latest
+</code></pre>
+<p>Run an instance of this image, and get a shell to that running instance with</p>
+<pre><code>$ docker run -it ubuntu:latest bash
+root@fe98a1ccbab0:/#
+</code></pre>
+<p>This is very similar to getting a shell to an Ubuntu VM on your machine.</p>
+<p>Move around, and do some stuff in your shell. </p>
+<pre><code>root@fe98a1ccbab0:/# echo hi
+hi
+root@fe98a1ccbab0:/# pwd
+/
+</code></pre>
+<blockquote>
+<p>Here, we start (<code>docker run</code>) an instance of the docker image <code>ubuntu:latest</code>, passing it a program to run (<code>bash</code>). We use the <code>-i</code> and the <code>-t</code> flags (combined into <code>-it</code>) to request an interactive shell to the container, allowing us to move around and do stuff in the <code>bash</code> session it opens for us.</p>
+</blockquote>
+<blockquote>
+<p>See <code>docker run</code> <a href="https://docs.docker.com/engine/reference/commandline/run/">docs</a> or run <code>docker run --help</code> to see more info about these flags and arguments.</p>
+</blockquote>
+<p>From the container, try creating a new <code>/app</code> directory at the root of your container's file system.</p>
+<pre><code>root@fe98a1ccbab0:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@fe98a1ccbab0:/# mkdir /app
+root@fe98a1ccbab0:/# cd /app
+root@fe98a1ccbab0:/app# echo &quot;hello from container&quot; &gt; message1.txt
+
+root@fe98a1ccbab0:/app# cat message1.txt
+hello from container
+</code></pre>
+<p>Exit with </p>
+<pre><code>root@fe98a1ccbab0:/app# exit
+exit
+</code></pre>
+<p>See your stopped container with</p>
+<pre><code>$ docker ps -a
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                     PORTS                NAMES
+fe98a1ccbab0        ubuntu                   &quot;bash&quot;                   2 minutes ago       Exited (0) 6 seconds ago                        crazy_mendeleev
+</code></pre>
+<p>Note the randomly generated <code>NAME</code> given to your container. </p>
+<p><em>Restart</em> your stopped container, using your <code>NAME</code> value instead</p>
+<pre><code>$ docker start crazy_mendeleev
+crazy_mendeleev
+</code></pre>
+<p>And attach to the interactive shell with</p>
+<pre><code>$ docker attach crazy_mendeleev
+</code></pre>
+<p>Once in, re-visit <code>/app</code> and <code>cat</code> out your previous message</p>
+<pre><code>root@fe98a1ccbab0:/# pwd
+/
+root@fe98a1ccbab0:/# cd app/
+root@fe98a1ccbab0:/app# ls
+message1.txt
+root@fe98a1ccbab0:/app# cat message1.txt
+hello from container
+</code></pre>
+<p>Exit</p>
+<pre><code>root@fe98a1ccbab0:/app# exit
+exit
+</code></pre>
+<p>and see the stopped container with</p>
+<pre><code>$ docker ps -a
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                     PORTS                NAMES
+fe98a1ccbab0        ubuntu                   &quot;bash&quot;                   5 minutes ago       Exited (0) 3 seconds ago                        crazy_mendeleev
+</code></pre>
+<p>Optionally remove it with:</p>
+<pre><code>$ docker rm crazy_mendeleev
+crazy_mendeleev
+</code></pre>
+<h2><a class="header" href="#docker-storage-mount-volume-to-host" id="docker-storage-mount-volume-to-host">Docker Storage (mount volume to host)</a></h2>
+<p>Often, a program might accumulate important data over time. </p>
+<p>If the program crashes and is lost (like <code>docker rm &lt;CONTAINER_NAME&gt;</code> in the previous section), we might want to make sure accumulated application data (<code>/app</code>) is not lost with it.</p>
+<p><em>Or</em>, one might want to starta newer version of a program, but have it access the same application data an earlier instance of the program generated.</p>
+<p>In this next section, we will run a docker program, but persist data in the <code>/app</code> dir of the container to your host VM's file system.</p>
+<p>This way, application data is preserved and available outside the ephermeral nature of a container, and <em>it's</em> VM-like filesystem.</p>
+<h3><a class="header" href="#a-hrefhttpsdocsdockercomenginereferencerunvolume-shared-filesystems-v-docsa" id="a-hrefhttpsdocsdockercomenginereferencerunvolume-shared-filesystems-v-docsa"><a href="https://docs.docker.com/engine/reference/run/#volume-shared-filesystems"><code>-v</code> (docs)</a></a></h3>
+<p>Start a <code>bash</code> session, but with the container's <code>/app</code> path mounted to a new <code>./host</code> directory in your current working directory.</p>
+<p>Windows (command prompt)</p>
+<pre><code>mkdir host
+docker run -it -v %cd%/host:/app ubuntu:latest bash
+</code></pre>
+<p>Linux (bash)</p>
+<pre><code>mkdir -p host
+docker run -it -v $(pwd)/host:/app ubuntu:latest bash
+</code></pre>
+<p><code>cd</code> and echo something to a text file there</p>
+<pre><code>cd /app
+echo &quot;hello from container&quot; &gt; message1.txt
+</code></pre>
+<p>Exit</p>
+<pre><code>exit
+</code></pre>
+<p>and see your output persisted to your host's file system.</p>
+<pre><code>$ ls host
+message1.txt
+
+$ cat host/message1.txt
+hello from container
+</code></pre>
+<p>Now, we can stop, totally remove an &quot;application&quot; (a container)</p>
+<pre><code>$ docker ps -a
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS                         PORTS                    NAMES
+1524aa8131da        hashicorp/http-echo      &quot;/http-echo '-text=h…&quot;   57 minutes ago      Up 57 minutes                  0.0.0.0:5678-&gt;5678/tcp   nifty_pasteur
+$ docker stop 152
+152
+$ docker rm 152
+152
+</code></pre>
+<p>and know that any &quot;application data&quot; is persisted to our local <code>./host</code> directory!</p>
+<p>We can always <code>run</code> a new instance of our program, mounted (<code>-v</code>) to the same data directory, and the program can continue with any relevant application data within its reach.</p>
+<p>We have &quot;persisted storage&quot; for our application! </p>
+<p>Often, you'll want to run a long running process. </p>
+<p>Examples:</p>
+<ul>
+<li>Running a webserver that responds to http requests over port 80.</li>
+<li>A simple app that prints a timestamp to console on a loop</li>
+</ul>
+<h2><a class="header" href="#docker-networking" id="docker-networking">Docker networking</a></h2>
+<p>Pull a simple hello webserver.</p>
+<p>Ref: https://hub.docker.com/r/hashicorp/http-echo/</p>
+<p>Pull</p>
+<pre><code>docker pull hashicorp/http-echo
+</code></pre>
+<p>We'll run this image, using <a href="https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose"><code>--port</code>(docs)</a>. Now, we are outfitting our running process (container) with some basic &quot;networking&quot;. </p>
+<p>In this case, with <code>-p X:Y</code>, we are saying map the port within the container <code>Y</code> to port <code>X</code> on the host machine.</p>
+<pre><code>docker run -p 8080:5678 hashicorp/http-echo -text=&quot;hello from the webserver in a container&quot;
+</code></pre>
+<blockquote>
+<p>Here, we specify the image (<code>hashicorp/http-echo</code>) and some argument (<code>-text=&quot;...&quot;</code>). Note that we didn't specify the <em>program</em> we want to run, like we did with <code>docker run ubuntu:latest bash</code> in the previous example. This is because <code>hashicorp/http-echo</code> has defined an <a href="https://docs.docker.com/engine/reference/builder/#entrypoint"><code>ENTRYPOINT</code>(docs)</a> for their image. When an <code>ENTRYPOINT</code> is defined, that is the default program invoked when the image is started, and the rest of the <code>docker run</code> command are passed as args/flags to that program.</p>
+</blockquote>
+<p>In a new shell, you can see the webserver from the container is responding to your host machine's port 8080 (<code>localhost:8080</code>)</p>
+<pre><code>$ curl localhost:8080
+hello from the webserver in a container
+</code></pre>
+<p>Exit (<code>Ctrl + C</code>) your webserver container.</p>
+<p>Notice the webserver is stopped, and <code>localhost:8080</code> is no longer responding.</p>
+<h2><a class="header" href="#docker-containers-in-the-background" id="docker-containers-in-the-background">Docker containers in the background</a></h2>
+<h2><a class="header" href="#-d" id="-d"><code>-d</code></a></h2>
+<p>Sometimes, you'll want to run a docker process in the background. You may not care about being attached to it's <code>stdout</code>.</p>
+<p>Use <code>-d</code>, or <code>--deamon</code> to run the process in the background, as a <a href="https://en.wikipedia.org/wiki/Daemon_(computing)">daemon</a>.</p>
+<pre><code>docker run -d -p 5678:5678 hashicorp/http-echo -text=&quot;hello from daemon webserver in a container&quot;
+</code></pre>
+<p>See the container with </p>
+<pre><code>$ docker run -d -p 5678:5678 hashicorp/http-echo -text=&quot;hello from daemon webserver in a container&quot;
+1524aa8131dab12cd0b9c7fd30e96ac39120c8e00469ac8e94ffdc8c3731e67e
+
+$ docker ps
+CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                    NAMES
+1524aa8131da        hashicorp/http-echo   &quot;/http-echo '-text=h…&quot;   5 seconds ago       Up 4 seconds        0.0.0.0:5678-&gt;5678/tcp   nifty_pasteur
+</code></pre>
+<blockquote>
+<p>Note the first 3 characters of the <code>ID</code> column of your container. You can use this to identify your container, like when we fetch logs later.</p>
+</blockquote>
+<p>It's pingable from a shell on your machine</p>
+<pre><code>$ curl localhost:5678
+hello from daemon webserver in a container
+</code></pre>
+<p>See the container's logs with</p>
+<pre><code>$ docker logs 152 # Use first 3 chars of your container's ID
+2020/07/07 08:20:39 Server is listening on :5678
+2020/07/07 08:21:48 localhost:5678 172.17.0.1:43646 &quot;GET / HTTP/1.1&quot; 200 43 &quot;curl/7.55.1&quot; 7.3µs
+</code></pre>
+<h1><a class="header" href="#what-is-kubectl" id="what-is-kubectl">What is kubectl</a></h1>
+<p><a href="https://kubernetes.io/docs/reference/kubectl/overview/">Documentation Link</a><br />
+The kubectl command line tool lets you control Kubernetes clusters. For configuration, kubectl looks for a file named config in the $HOME/.kube directory. You can specify other kubeconfig files by setting the KUBECONFIG environment variable or by setting the --kubeconfig flag.</p>
+<p>This overview covers kubectl syntax, describes the command operations, and provides common examples. For details about each command, including all the supported flags and subcommands, see the kubectl reference documentation. For installation instructions see installing kubectl.</p>
+<h2><a class="header" href="#kubernetes-deployment" id="kubernetes-deployment">Kubernetes Deployment</a></h2>
+<p>Take a look at the <a href="kubernetes/application.yaml">application.yaml</a>. </p>
+<p>Here we are deploy thing the http-echo Docker image to the Kubernetes cluster. You'll find the image name in spec -&gt; spec -&gt; containers. Also in this containers section we map it to port 5678 and pass in some arguments.</p>
+<p>In the second portion of this file, we define a service, which allows us to expose the application as a network service. <a href="https://kubernetes.io/docs/concepts/services-networking/service/">Read more about services</a>. </p>
+<p>In the third portion of this file, we define an ingress, which allows enables HTTP/HTTPS routes to our service. <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Read more about ingress</a>.</p>
+<p>Note: We are deploying this application in the default namespace and not your personal namespace previously created.</p>
+<p><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Read more about deployments in general</a>.</p>
+<h3><a class="header" href="#apply-the-deployment" id="apply-the-deployment">Apply the Deployment</a></h3>
+<p>In this folder, run </p>
+<pre><code>kubectl apply -f application.yaml
+</code></pre>
+<p>Visit <a href="kubernetes/rangerdanger.dev">rangerdanger.dev</a>.</p>
+<p>Modify the file to change the message. Re-run the command above to re-deploy the resources defined in the file.</p>
+<p>Refresh <a href="kubernetes/rangerdanger.dev">rangerdanger.dev</a> to see the updated message!</p>
+<p>apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: http-echo
+namespace: default
+spec:
+replicas: 1
+selector:
+matchLabels:
+app: http-echo
+template:
+metadata:
+labels:
+app: http-echo
+spec:
+containers:
+- name: http-echo
+image: hashicorp/http-echo
+args: [&quot;-text&quot;, &quot;woof&quot;]
+ports:
+- containerPort: 5678</p>
+<hr />
+<p>apiVersion: v1
+kind: Service
+metadata:
+labels:
+name: http-echo-service
+name: http-echo-service
+namespace: default
+spec:
+type: ClusterIP
+ports:
+- port: 80 # The port that this service should listen on.
+targetPort: 5678 # The container port that this service should forward to.
+protocol: TCP</p>
+<h1><a class="header" href="#label-keys-and-values-that-must-match-in-order-to-receive-traffic-for-this-service" id="label-keys-and-values-that-must-match-in-order-to-receive-traffic-for-this-service">Label keys and values that must match in order to receive traffic for this service.</a></h1>
+<p>selector:
+app: http-echo</p>
+<hr />
+<p>apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+name: http-echo-ingress
+namespace: default
+annotations:
+kubernetes.io/tls-acme: &quot;true&quot;
+kubernetes.io/ingress.class: &quot;nginx&quot;
+spec:
+tls:</p>
+<ul>
+<li>hosts:
+<ul>
+<li>rangerdanger.dev
+secretName: rangerdanger-dev-https-cert
+rules:</li>
+</ul>
+</li>
+<li>host: rangerdanger.dev
+http:
+paths:
+<ul>
+<li>backend:
+serviceName: http-echo-service
+servicePort: 80
+path: /</li>
+</ul>
+</li>
+</ul>
+<h1><a class="header" href="#rough-rust-notes" id="rough-rust-notes">Rough Rust notes</a></h1>
+<p>String owned 
+str borrowed </p>
+<p>Borrow checker--- 
+T is owned 
+&amp;T is shared (many can access) 
+&amp;mut T is exclusive (only 1) </p>
+<h3><a class="header" href="#good-version" id="good-version">Good version</a></h3>
+<p>https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=ce3af210ecac2b9bdeb5157e5e26ba22 </p>
+<h3><a class="header" href="#better-version" id="better-version">Better version</a></h3>
+<p>https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=d49b99987d8e0625599c5e8b5b40e885 </p>
+<p>copy only copys the header(pointers, len, size) but it points to the same location on the heap </p>
+<p>heap based bindings</p>
+<h1><a class="header" href="#common-datatypes-in-rust" id="common-datatypes-in-rust">Common Datatypes in Rust</a></h1>
+<h2><a class="header" href="#the-different-strings-in-rust" id="the-different-strings-in-rust">The different strings in Rust</a></h2>
+<p><code>String</code> is an owned typed 
+<code>&amp;str</code> is a borrowed typed </p>
+<p>General Rule: Prefer &amp;str as a function parameter or if you want a read-only view of a string; String when you want to own and mutate a string </p>
+<p><a href="https://www.ameyalokare.com/rust/2017/10/12/rust-str-vs-String.html">More info</a></p>
+<h1><a class="header" href="#error-handling-in-rust" id="error-handling-in-rust">Error handling in Rust</a></h1>
+<p><a href="https://doc.rust-lang.org/book/ch09-00-error-handling.html">Error handling chapter</a></p>
+<p>Many built-in functions will return a Result type. This type will need to be error handled. Once the error has been handled it will become the type you were originally expecting.</p>
+<p>Example situation:
+<code>read_to_string()</code> returns a result type (needs error handling), and in that result type contains the actual string.</p>
+<pre><code class="language-Rust">// content is a Return type
+let content = std:fs::read_to_string(&amp;args.path);
+
+// content becomes a String after error is unwrapped
+let content = std::fs::read_to_string(&amp;args.path).expect(&quot;could not read file&quot;);
+</code></pre>
+<h2><a class="header" href="#unwrapping" id="unwrapping">Unwrapping</a></h2>
+<p>let result is a Result type right now and it's being unwrapped in the match statement</p>
+<pre><code class="language-Rust">match result {
+    Ok(content) =&gt; { println!(&quot;File content: {}&quot;, content); }
+    Err(error) =&gt; { println!(&quot;Oh noes: {}&quot;, error); }
+}
+</code></pre>
+<p>result is now assigned to content and we can use it outside of the match statement</p>
+<pre><code class="language-Rust">let content = match result {
+    Ok(content) =&gt; content,
+    Err(error) =&gt; {
+        panic!(&quot;Can't deal with {}, just exit here&quot;, error);
+    }
+};
+println!(&quot;file content: {}&quot;, content);
+</code></pre>
+<h2><a class="header" href="#panic" id="panic">Panic</a></h2>
+<p>Simplest form of error handling. <code>panic!(&quot;kill program&quot;)</code> will just stop the program
+<code>.unwrap()</code> is just a match statement that returns <code>panic!(&quot;this will exit the program&quot;)</code> avoid using <code>unwrap</code></p>
+<h2><a class="header" href="#optiont" id="optiont">Option<T></a></h2>
+<p><code>Result&lt;T&gt;</code> is a more powerful version of Option<T> but rule of thumb is to use Result<T> when
+your expecting to handle many types of errors and use Option<T> if you're handling 1 thing. (may
+more may not return a value)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
