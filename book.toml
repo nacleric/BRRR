@@ -1,0 +1,6 @@
+[book]
+authors = ["Eric Ng"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Eric's Notes go BRRR"
