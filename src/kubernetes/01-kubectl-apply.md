@@ -2,7 +2,7 @@
 
 Take a look at the [application.yaml](application.yaml). 
 
-Here we are deploything the http-echo Docker image to the Kubernetes cluster. You'll find the image name in spec -> spec -> containers. Also in this containers section we map it to port 5678 and pass in some arguments.
+Here we are deploy thing the http-echo Docker image to the Kubernetes cluster. You'll find the image name in spec -> spec -> containers. Also in this containers section we map it to port 5678 and pass in some arguments.
 
 In the second portion of this file, we define a service, which allows us to expose the application as a network service. [Read more about services](https://kubernetes.io/docs/concepts/services-networking/service/). 
 
