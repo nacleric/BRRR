@@ -1,6 +1,7 @@
 # Summary
 
 - [mdBook](../README.md)
+- [bash](bash.md)
 - [azure](azure/README.md)
     - [az-setup](azure/010-az-setup.md)
     - [az-kubectl-setup](azure/020-az-kubectl-setup.md)
