@@ -160,10 +160,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#rough-rust-notes" id="rough-rust-notes">Rough Rust notes</a></h1>
+<h2><a class="header" href="#string-stuff" id="string-stuff">String stuff</a></h2>
 <p>String owned 
 str borrowed </p>
-<p>Borrow checker--- 
-T is owned 
+<h2><a class="header" href="#borrow-checker" id="borrow-checker">Borrow checker</a></h2>
+<p>T is owned 
 &amp;T is shared (many can access) 
 &amp;mut T is exclusive (only 1) </p>
 <h3><a class="header" href="#good-version" id="good-version">Good version</a></h3>
@@ -210,21 +211,6 @@ T is owned
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
