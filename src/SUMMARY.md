@@ -18,5 +18,6 @@
     - [yaml example](kubernetes/application.yaml)
 - [Rust](rust/README.md)
     - [common-datatypes](rust/common_datatypes.md)
-    - [errorhandling](rust/errorhandling.md)
+    - [error-handling](rust/errorhandling.md)
     - [common-collections](rust/common_collections.md)
+    - [enums trait struct](rust/enum_trait_struct.md)
