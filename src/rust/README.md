@@ -19,3 +19,24 @@ https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=d49b9998
 copy only copys the header(pointers, len, size) but it points to the same location on the heap 
 
 heap based bindings
+
+## Bitwise stuff
+```
+AND
+0 0 | 0
+0 1 | 0
+1 0 | 0
+1 1 | 1
+
+OR
+0 0 | 0
+0 1 | 1
+1 0 | 1
+1 1 | 1
+
+XOR
+0 0 | 0
+0 1 | 1
+1 0 | 1
+1 1 | 0
+```
