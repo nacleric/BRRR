@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> mdBook</a></li><li class="chapter-item expanded "><a href="bash.html"><strong aria-hidden="true">2.</strong> bash</a></li><li class="chapter-item expanded "><a href="azure/index.html"><strong aria-hidden="true">3.</strong> azure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="azure/010-az-setup.html"><strong aria-hidden="true">3.1.</strong> az-setup</a></li><li class="chapter-item expanded "><a href="azure/020-az-kubectl-setup.html"><strong aria-hidden="true">3.2.</strong> az-kubectl-setup</a></li><li class="chapter-item expanded "><a href="azure/030-kubectl-ns.html"><strong aria-hidden="true">3.3.</strong> kubectl-ns</a></li><li class="chapter-item expanded "><a href="azure/040-azurek8.html"><strong aria-hidden="true">3.4.</strong> azure-micro-k8</a></li></ol></li><li class="chapter-item expanded "><a href="docker/index.html"><strong aria-hidden="true">4.</strong> docker</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="docker/010-docker-compute.html"><strong aria-hidden="true">4.1.</strong> docker-compute</a></li><li class="chapter-item expanded "><a href="docker/020-docker-storage.html"><strong aria-hidden="true">4.2.</strong> docker-storage</a></li><li class="chapter-item expanded "><a href="docker/028-docker-long-running.html"><strong aria-hidden="true">4.3.</strong> docker-long-running</a></li><li class="chapter-item expanded "><a href="docker/030-docker-networking.html"><strong aria-hidden="true">4.4.</strong> docker-networking</a></li><li class="chapter-item expanded "><a href="docker/035-docker-background.html"><strong aria-hidden="true">4.5.</strong> docker-background</a></li></ol></li><li class="chapter-item expanded "><a href="kubernetes/00-kubectl-overview.html"><strong aria-hidden="true">5.</strong> kubernetes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kubernetes/01-kubectl-apply.html"><strong aria-hidden="true">5.1.</strong> kubectl-apply</a></li><li class="chapter-item expanded "><a href="kubernetes/application.html"><strong aria-hidden="true">5.2.</strong> yaml example</a></li></ol></li><li class="chapter-item expanded "><a href="rust/index.html"><strong aria-hidden="true">6.</strong> Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust/common_datatypes.html"><strong aria-hidden="true">6.1.</strong> common-datatypes</a></li><li class="chapter-item expanded "><a href="rust/errorhandling.html"><strong aria-hidden="true">6.2.</strong> errorhandling</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> mdBook</a></li><li class="chapter-item expanded "><a href="bash.html"><strong aria-hidden="true">2.</strong> bash</a></li><li class="chapter-item expanded "><a href="azure/index.html"><strong aria-hidden="true">3.</strong> azure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="azure/010-az-setup.html"><strong aria-hidden="true">3.1.</strong> az-setup</a></li><li class="chapter-item expanded "><a href="azure/020-az-kubectl-setup.html"><strong aria-hidden="true">3.2.</strong> az-kubectl-setup</a></li><li class="chapter-item expanded "><a href="azure/030-kubectl-ns.html"><strong aria-hidden="true">3.3.</strong> kubectl-ns</a></li><li class="chapter-item expanded "><a href="azure/040-azurek8.html"><strong aria-hidden="true">3.4.</strong> azure-micro-k8</a></li></ol></li><li class="chapter-item expanded "><a href="docker/index.html"><strong aria-hidden="true">4.</strong> docker</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="docker/010-docker-compute.html"><strong aria-hidden="true">4.1.</strong> docker-compute</a></li><li class="chapter-item expanded "><a href="docker/020-docker-storage.html"><strong aria-hidden="true">4.2.</strong> docker-storage</a></li><li class="chapter-item expanded "><a href="docker/028-docker-long-running.html"><strong aria-hidden="true">4.3.</strong> docker-long-running</a></li><li class="chapter-item expanded "><a href="docker/030-docker-networking.html"><strong aria-hidden="true">4.4.</strong> docker-networking</a></li><li class="chapter-item expanded "><a href="docker/035-docker-background.html"><strong aria-hidden="true">4.5.</strong> docker-background</a></li></ol></li><li class="chapter-item expanded "><a href="kubernetes/00-kubectl-overview.html"><strong aria-hidden="true">5.</strong> kubernetes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kubernetes/01-kubectl-apply.html"><strong aria-hidden="true">5.1.</strong> kubectl-apply</a></li><li class="chapter-item expanded "><a href="kubernetes/application.html"><strong aria-hidden="true">5.2.</strong> yaml example</a></li></ol></li><li class="chapter-item expanded "><a href="rust/index.html"><strong aria-hidden="true">6.</strong> Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rust/common_datatypes.html"><strong aria-hidden="true">6.1.</strong> common-datatypes</a></li><li class="chapter-item expanded "><a href="rust/errorhandling.html"><strong aria-hidden="true">6.2.</strong> errorhandling</a></li><li class="chapter-item expanded "><a href="rust/common_collections.html"><strong aria-hidden="true">6.3.</strong> common-collections</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -536,6 +536,21 @@ println!(&quot;file content: {}&quot;, content);
 <p><code>Result&lt;T&gt;</code> is a more powerful version of Option<T> but rule of thumb is to use Result<T> when
 your expecting to handle many types of errors and use Option<T> if you're handling 1 thing. (may
 more may not return a value)</p>
+<h1><a class="header" href="#collections" id="collections">Collections</a></h1>
+<p><a href="https://doc.rust-lang.org/book/ch08-00-common-collections.html">Chapter 8 link</a> </p>
+<p>Rust's standard library includes a number of very useful data structures called collections. Most other data types represent one specific value, but collections can contain multiple values. Unlike the built-in array and tuple types, the data these collections point to is stored on the heap, which means the amount of data does not need to be known at compile time and can grow or shrink as the program runs. Each kind of collection has different capabilities and costs, and choosing an appropriate one for your current situation is a skill you’ll develop over time. </p>
+<ul>
+<li>A vector allows you to store a variable number of values next to each other.</li>
+<li>A string is a collection of characters. We've mentioned the String type previously, but in this chapter we’ll talk about it in depth.</li>
+<li>A hash map allows you to associate a value with a particular key. It’s a particular implementation of the more general data structure called a map.</li>
+</ul>
+<h2><a class="header" href="#vector-examples" id="vector-examples">Vector examples</a></h2>
+<p>The first collection type we’ll look at is Vec<T>, also known as a vector. Vectors allow you to store more than one value in a single data structure that puts all the values next to each other in memory. Vectors can only store values of the same type. They are useful when you have a list of items, such as the lines of text in a file or the prices of items in a shopping cart.</p>
+<p>Note: Remember to use <code>#[derive(Debug)]</code> when printing to console </p>
+<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=0cd1df994bea1cd9884f198ddf2c9905">Vector playground</a> </p>
+<h2><a class="header" href="#hashmap-examples" id="hashmap-examples">Hashmap examples</a></h2>
+<p>The last of our common collections is the hash map. The type HashMap&lt;K, V&gt; stores a mapping of keys of type K to values of type V. It does this via a hashing function, which determines how it places these keys and values into memory. Many programming languages support this kind of data structure, but they often use a different name, such as hash, map, object, hash table, dictionary, or associative array, just to name a few. </p>
+<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=e4b787dada5bc813b0ef62e09678c833">Hashmap playground</a> </p>
 
                     </main>
 
@@ -558,6 +573,21 @@ more may not return a value)</p>
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
